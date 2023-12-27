@@ -1,0 +1,16 @@
+D:\Applications\My Applications\f_projects\DataMining\FPGrowth\FPGrowth\bin\Debug\FPGrowth.exe
+D:\Applications\My Applications\f_projects\DataMining\FPGrowth\FPGrowth\bin\Debug\FPGrowth.pdb
+D:\Applications\My Applications\f_projects\DataMining\FPGrowth\FPGrowth\obj\x86\Debug\FPGrowth.Form1.resources
+D:\Applications\My Applications\f_projects\DataMining\FPGrowth\FPGrowth\obj\x86\Debug\FPGrowth.Properties.Resources.resources
+D:\Applications\My Applications\f_projects\DataMining\FPGrowth\FPGrowth\obj\x86\Debug\FPGrowth.csproj.GenerateResource.Cache
+D:\Applications\My Applications\f_projects\DataMining\FPGrowth\FPGrowth\obj\x86\Debug\FPGrowth.exe
+D:\Applications\My Applications\f_projects\DataMining\FPGrowth\FPGrowth\obj\x86\Debug\FPGrowth.pdb
+D:\Applications\My Applications\f_projects\DataMining\FPGrowth\FPGrowth\obj\x86\Debug\FPGrowth.csprojResolveAssemblyReference.cache
+E:\Projects\Farkhondeh Projects\DataMining\FPGrowth\FPGrowth\obj\x86\Debug\FPGrowth.exe
+E:\Projects\Farkhondeh Projects\DataMining\FPGrowth\FPGrowth\obj\x86\Debug\FPGrowth.pdb
+E:\Projects\Farkhondeh Projects\DataMining\FPGrowth\FPGrowth\bin\Debug\FPGrowth.exe
+E:\Projects\Farkhondeh Projects\DataMining\FPGrowth\FPGrowth\bin\Debug\FPGrowth.pdb
+E:\Projects\Farkhondeh Projects\DataMining\FPGrowth\FPGrowth\obj\x86\Debug\FPGrowth.csprojResolveAssemblyReference.cache
+E:\Projects\Farkhondeh Projects\DataMining\FPGrowth\FPGrowth\obj\x86\Debug\FPGrowth.Form1.resources
+E:\Projects\Farkhondeh Projects\DataMining\FPGrowth\FPGrowth\obj\x86\Debug\FPGrowth.Properties.Resources.resources
+E:\Projects\Farkhondeh Projects\DataMining\FPGrowth\FPGrowth\obj\x86\Debug\FPGrowth.csproj.GenerateResource.Cache

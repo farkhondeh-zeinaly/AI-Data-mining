@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SalesAndShippingDWModelStoreContainer" CdmEntityContainer="SalesAndShippingDWEntities">
+    <EntitySetMapping Name="DimTimes">
+      <EntityTypeMapping TypeName="SalesAndShippingDWModel.DimTime">
+        <MappingFragment StoreEntitySet="DimTime">
+          <ScalarProperty Name="MonthName" ColumnName="MonthName" />
+          <ScalarProperty Name="DayOfTheWeekPersianName" ColumnName="DayOfTheWeekPersianName" />
+          <ScalarProperty Name="QuarterName" ColumnName="QuarterName" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Quarter" ColumnName="Quarter" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="DayOfTheWeekName" ColumnName="DayOfTheWeekName" />
+          <ScalarProperty Name="DayOfTheWeek" ColumnName="DayOfTheWeek" />
+          <ScalarProperty Name="Day" ColumnName="Day" />
+          <ScalarProperty Name="PersianDate" ColumnName="PersianDate" />
+          <ScalarProperty Name="MiladiDate" ColumnName="MiladiDate" />
+          <ScalarProperty Name="TimeId" ColumnName="TimeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

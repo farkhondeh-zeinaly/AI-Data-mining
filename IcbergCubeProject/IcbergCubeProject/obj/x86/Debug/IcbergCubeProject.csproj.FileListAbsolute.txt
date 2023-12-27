@@ -1,0 +1,15 @@
+D:\Applications\My Applications\f_projects\DataMining\IcbergCubeProject\IcbergCubeProject\bin\Debug\IcbergCubeProject.exe
+D:\Applications\My Applications\f_projects\DataMining\IcbergCubeProject\IcbergCubeProject\bin\Debug\IcbergCubeProject.pdb
+D:\Applications\My Applications\f_projects\DataMining\IcbergCubeProject\IcbergCubeProject\obj\x86\Debug\IcbergCubeProject.Form1.resources
+D:\Applications\My Applications\f_projects\DataMining\IcbergCubeProject\IcbergCubeProject\obj\x86\Debug\IcbergCubeProject.Properties.Resources.resources
+D:\Applications\My Applications\f_projects\DataMining\IcbergCubeProject\IcbergCubeProject\obj\x86\Debug\IcbergCubeProject.csproj.GenerateResource.Cache
+D:\Applications\My Applications\f_projects\DataMining\IcbergCubeProject\IcbergCubeProject\obj\x86\Debug\IcbergCubeProject.exe
+D:\Applications\My Applications\f_projects\DataMining\IcbergCubeProject\IcbergCubeProject\obj\x86\Debug\IcbergCubeProject.pdb
+E:\Projects\Farkhondeh Projects\DataMining\IcbergCubeProject\IcbergCubeProject\obj\x86\Debug\IcbergCubeProject.exe
+E:\Projects\Farkhondeh Projects\DataMining\IcbergCubeProject\IcbergCubeProject\obj\x86\Debug\IcbergCubeProject.pdb
+E:\Projects\Farkhondeh Projects\DataMining\IcbergCubeProject\IcbergCubeProject\bin\Debug\IcbergCubeProject.exe
+E:\Projects\Farkhondeh Projects\DataMining\IcbergCubeProject\IcbergCubeProject\bin\Debug\IcbergCubeProject.pdb
+E:\Projects\Farkhondeh Projects\DataMining\IcbergCubeProject\IcbergCubeProject\obj\x86\Debug\IcbergCubeProject.Form1.resources
+E:\Projects\Farkhondeh Projects\DataMining\IcbergCubeProject\IcbergCubeProject\obj\x86\Debug\IcbergCubeProject.Properties.Resources.resources
+E:\Projects\Farkhondeh Projects\DataMining\IcbergCubeProject\IcbergCubeProject\obj\x86\Debug\IcbergCubeProject.csproj.GenerateResource.Cache
+E:\Projects\Farkhondeh Projects\DataMining\IcbergCubeProject\IcbergCubeProject\obj\x86\Debug\IcbergCubeProject.csprojResolveAssemblyReference.cache

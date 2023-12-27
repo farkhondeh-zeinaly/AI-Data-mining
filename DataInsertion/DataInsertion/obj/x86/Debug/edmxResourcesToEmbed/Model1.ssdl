@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SalesAndShippingDWModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="SalesAndShippingDWModelStoreContainer">
+    <EntitySet Name="DimTime" EntityType="SalesAndShippingDWModel.Store.DimTime" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="DimTime">
+    <Key>
+      <PropertyRef Name="TimeId" />
+    </Key>
+    <Property Name="TimeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="MiladiDate" Type="datetime" Nullable="false" />
+    <Property Name="PersianDate" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="Day" Type="int" Nullable="false" />
+    <Property Name="DayOfTheWeek" Type="int" Nullable="false" />
+    <Property Name="DayOfTheWeekName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="DayOfTheWeekPersianName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Month" Type="int" Nullable="false" />
+    <Property Name="MonthName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Quarter" Type="int" Nullable="false" />
+    <Property Name="QuarterName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Year" Type="int" Nullable="false" />
+  </EntityType>
+</Schema>

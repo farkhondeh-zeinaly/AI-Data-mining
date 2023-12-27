@@ -1,0 +1,9 @@
+D:\Applications\My Applications\f_projects\DataMining\DataInsertion\DataInsertion\bin\Debug\DataInsertion.exe.config
+D:\Applications\My Applications\f_projects\DataMining\DataInsertion\DataInsertion\bin\Debug\DataInsertion.exe
+D:\Applications\My Applications\f_projects\DataMining\DataInsertion\DataInsertion\bin\Debug\DataInsertion.pdb
+D:\Applications\My Applications\f_projects\DataMining\DataInsertion\DataInsertion\obj\x86\Debug\DataInsertion.Form1.resources
+D:\Applications\My Applications\f_projects\DataMining\DataInsertion\DataInsertion\obj\x86\Debug\DataInsertion.Properties.Resources.resources
+D:\Applications\My Applications\f_projects\DataMining\DataInsertion\DataInsertion\obj\x86\Debug\DataInsertion.csproj.GenerateResource.Cache
+D:\Applications\My Applications\f_projects\DataMining\DataInsertion\DataInsertion\obj\x86\Debug\DataInsertion.exe
+D:\Applications\My Applications\f_projects\DataMining\DataInsertion\DataInsertion\obj\x86\Debug\DataInsertion.pdb
+D:\Applications\My Applications\f_projects\DataMining\DataInsertion\DataInsertion\obj\x86\Debug\DataInsertion.csprojResolveAssemblyReference.cache

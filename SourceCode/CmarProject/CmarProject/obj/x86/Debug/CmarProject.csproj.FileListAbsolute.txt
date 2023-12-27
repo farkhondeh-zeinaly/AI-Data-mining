@@ -1,0 +1,8 @@
+E:\Projects\Farkhondeh Projects\DataMining\CMAR\CmarProject\CmarProject\bin\Debug\CmarProject.exe
+E:\Projects\Farkhondeh Projects\DataMining\CMAR\CmarProject\CmarProject\bin\Debug\CmarProject.pdb
+E:\Projects\Farkhondeh Projects\DataMining\CMAR\CmarProject\CmarProject\obj\x86\Debug\CmarProject.Form1.resources
+E:\Projects\Farkhondeh Projects\DataMining\CMAR\CmarProject\CmarProject\obj\x86\Debug\CmarProject.Properties.Resources.resources
+E:\Projects\Farkhondeh Projects\DataMining\CMAR\CmarProject\CmarProject\obj\x86\Debug\CmarProject.csproj.GenerateResource.Cache
+E:\Projects\Farkhondeh Projects\DataMining\CMAR\CmarProject\CmarProject\obj\x86\Debug\CmarProject.exe
+E:\Projects\Farkhondeh Projects\DataMining\CMAR\CmarProject\CmarProject\obj\x86\Debug\CmarProject.pdb
+E:\Projects\Farkhondeh Projects\DataMining\CMAR\CmarProject\CmarProject\obj\x86\Debug\CmarProject.csprojResolveAssemblyReference.cache

@@ -1,0 +1,710 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SalesAndShippingDWModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="SalesAndShippingDWModelStoreContainer">
+          <EntitySet Name="DimBranch" EntityType="SalesAndShippingDWModel.Store.DimBranch" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DimItem" EntityType="SalesAndShippingDWModel.Store.DimItem" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DimLocation" EntityType="SalesAndShippingDWModel.Store.DimLocation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DimShipper" EntityType="SalesAndShippingDWModel.Store.DimShipper" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DimTime" EntityType="SalesAndShippingDWModel.Store.DimTime" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FactSales" EntityType="SalesAndShippingDWModel.Store.FactSales" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FactShipping" EntityType="SalesAndShippingDWModel.Store.FactShipping" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_DimShipper_DimLocation" Association="SalesAndShippingDWModel.Store.FK_DimShipper_DimLocation">
+            <End Role="DimLocation" EntitySet="DimLocation" />
+            <End Role="DimShipper" EntitySet="DimShipper" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FactSales_DimBranch" Association="SalesAndShippingDWModel.Store.FK_FactSales_DimBranch">
+            <End Role="DimBranch" EntitySet="DimBranch" />
+            <End Role="FactSales" EntitySet="FactSales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FactSales_DimItem" Association="SalesAndShippingDWModel.Store.FK_FactSales_DimItem">
+            <End Role="DimItem" EntitySet="DimItem" />
+            <End Role="FactSales" EntitySet="FactSales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FactSales_DimLocation" Association="SalesAndShippingDWModel.Store.FK_FactSales_DimLocation">
+            <End Role="DimLocation" EntitySet="DimLocation" />
+            <End Role="FactSales" EntitySet="FactSales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FactSales_DimTime" Association="SalesAndShippingDWModel.Store.FK_FactSales_DimTime">
+            <End Role="DimTime" EntitySet="DimTime" />
+            <End Role="FactSales" EntitySet="FactSales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FactShipping_DimItem" Association="SalesAndShippingDWModel.Store.FK_FactShipping_DimItem">
+            <End Role="DimItem" EntitySet="DimItem" />
+            <End Role="FactShipping" EntitySet="FactShipping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FactShipping_DimLocation" Association="SalesAndShippingDWModel.Store.FK_FactShipping_DimLocation">
+            <End Role="DimLocation" EntitySet="DimLocation" />
+            <End Role="FactShipping" EntitySet="FactShipping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FactShipping_DimLocation1" Association="SalesAndShippingDWModel.Store.FK_FactShipping_DimLocation1">
+            <End Role="DimLocation" EntitySet="DimLocation" />
+            <End Role="FactShipping" EntitySet="FactShipping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FactShipping_DimShipper" Association="SalesAndShippingDWModel.Store.FK_FactShipping_DimShipper">
+            <End Role="DimShipper" EntitySet="DimShipper" />
+            <End Role="FactShipping" EntitySet="FactShipping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FactShipping_FactShipping" Association="SalesAndShippingDWModel.Store.FK_FactShipping_FactShipping">
+            <End Role="DimTime" EntitySet="DimTime" />
+            <End Role="FactShipping" EntitySet="FactShipping" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="DimBranch">
+          <Key>
+            <PropertyRef Name="BranchId" />
+          </Key>
+          <Property Name="BranchId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BranchName" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="BranchType" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DimItem">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ItemName" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Brand" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ItemType" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="SupplierType" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DimLocation">
+          <Key>
+            <PropertyRef Name="LocationId" />
+          </Key>
+          <Property Name="LocationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Street" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="City" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ProvinceOrState" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DimShipper">
+          <Key>
+            <PropertyRef Name="ShipperId" />
+          </Key>
+          <Property Name="ShipperId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ShipperName" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="LoacionId" Type="int" />
+          <Property Name="ShipperType" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DimTime">
+          <Key>
+            <PropertyRef Name="TimeId" />
+          </Key>
+          <Property Name="TimeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MiladiDate" Type="datetime" Nullable="false" />
+          <Property Name="PersianDate" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="Day" Type="int" Nullable="false" />
+          <Property Name="DayOfTheWeek" Type="int" Nullable="false" />
+          <Property Name="DayOfTheWeekName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DayOfTheWeekPersianName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Month" Type="int" Nullable="false" />
+          <Property Name="MonthName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Quarter" Type="int" Nullable="false" />
+          <Property Name="QuarterName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Year" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FactSales">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TimeId" Type="int" Nullable="false" />
+          <Property Name="ItemId" Type="int" Nullable="false" />
+          <Property Name="BranchId" Type="int" Nullable="false" />
+          <Property Name="LocationId" Type="int" Nullable="false" />
+          <Property Name="UnitsSold" Type="int" Nullable="false" />
+          <Property Name="DollarsSold" Type="money" Nullable="false" />
+          <Property Name="AvgSales" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FactShipping">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TimeId" Type="int" Nullable="false" />
+          <Property Name="ItemId" Type="int" Nullable="false" />
+          <Property Name="ShipperId" Type="int" Nullable="false" />
+          <Property Name="FromLocationId" Type="int" Nullable="false" />
+          <Property Name="ToLocationId" Type="int" Nullable="false" />
+          <Property Name="DollarsCost" Type="money" Nullable="false" />
+          <Property Name="UnitsShipped" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_DimShipper_DimLocation">
+          <End Role="DimLocation" Type="SalesAndShippingDWModel.Store.DimLocation" Multiplicity="0..1" />
+          <End Role="DimShipper" Type="SalesAndShippingDWModel.Store.DimShipper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DimLocation">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="DimShipper">
+              <PropertyRef Name="LoacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FactSales_DimBranch">
+          <End Role="DimBranch" Type="SalesAndShippingDWModel.Store.DimBranch" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FactSales" Type="SalesAndShippingDWModel.Store.FactSales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DimBranch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="FactSales">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FactSales_DimItem">
+          <End Role="DimItem" Type="SalesAndShippingDWModel.Store.DimItem" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FactSales" Type="SalesAndShippingDWModel.Store.FactSales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DimItem">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="FactSales">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FactSales_DimLocation">
+          <End Role="DimLocation" Type="SalesAndShippingDWModel.Store.DimLocation" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FactSales" Type="SalesAndShippingDWModel.Store.FactSales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DimLocation">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="FactSales">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FactSales_DimTime">
+          <End Role="DimTime" Type="SalesAndShippingDWModel.Store.DimTime" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FactSales" Type="SalesAndShippingDWModel.Store.FactSales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DimTime">
+              <PropertyRef Name="TimeId" />
+            </Principal>
+            <Dependent Role="FactSales">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FactShipping_DimItem">
+          <End Role="DimItem" Type="SalesAndShippingDWModel.Store.DimItem" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FactShipping" Type="SalesAndShippingDWModel.Store.FactShipping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DimItem">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="FactShipping">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FactShipping_DimLocation">
+          <End Role="DimLocation" Type="SalesAndShippingDWModel.Store.DimLocation" Multiplicity="1" />
+          <End Role="FactShipping" Type="SalesAndShippingDWModel.Store.FactShipping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DimLocation">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="FactShipping">
+              <PropertyRef Name="ToLocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FactShipping_DimLocation1">
+          <End Role="DimLocation" Type="SalesAndShippingDWModel.Store.DimLocation" Multiplicity="1" />
+          <End Role="FactShipping" Type="SalesAndShippingDWModel.Store.FactShipping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DimLocation">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="FactShipping">
+              <PropertyRef Name="FromLocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FactShipping_DimShipper">
+          <End Role="DimShipper" Type="SalesAndShippingDWModel.Store.DimShipper" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FactShipping" Type="SalesAndShippingDWModel.Store.FactShipping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DimShipper">
+              <PropertyRef Name="ShipperId" />
+            </Principal>
+            <Dependent Role="FactShipping">
+              <PropertyRef Name="ShipperId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FactShipping_FactShipping">
+          <End Role="DimTime" Type="SalesAndShippingDWModel.Store.DimTime" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FactShipping" Type="SalesAndShippingDWModel.Store.FactShipping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DimTime">
+              <PropertyRef Name="TimeId" />
+            </Principal>
+            <Dependent Role="FactShipping">
+              <PropertyRef Name="TimeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SalesAndShippingDWModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="SalesAndShippingDWEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DimTimes" EntityType="SalesAndShippingDWModel.DimTime" />
+          <EntitySet Name="DimBranches" EntityType="SalesAndShippingDWModel.DimBranch" />
+          <EntitySet Name="DimItems" EntityType="SalesAndShippingDWModel.DimItem" />
+          <EntitySet Name="DimLocations" EntityType="SalesAndShippingDWModel.DimLocation" />
+          <EntitySet Name="DimShippers" EntityType="SalesAndShippingDWModel.DimShipper" />
+          <EntitySet Name="FactSales" EntityType="SalesAndShippingDWModel.FactSale" />
+          <EntitySet Name="FactShippings" EntityType="SalesAndShippingDWModel.FactShipping" />
+          <AssociationSet Name="FK_FactSales_DimBranch" Association="SalesAndShippingDWModel.FK_FactSales_DimBranch">
+            <End Role="DimBranch" EntitySet="DimBranches" />
+            <End Role="FactSale" EntitySet="FactSales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FactSales_DimItem" Association="SalesAndShippingDWModel.FK_FactSales_DimItem">
+            <End Role="DimItem" EntitySet="DimItems" />
+            <End Role="FactSale" EntitySet="FactSales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DimShipper_DimLocation" Association="SalesAndShippingDWModel.FK_DimShipper_DimLocation">
+            <End Role="DimLocation" EntitySet="DimLocations" />
+            <End Role="DimShipper" EntitySet="DimShippers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FactSales_DimLocation" Association="SalesAndShippingDWModel.FK_FactSales_DimLocation">
+            <End Role="DimLocation" EntitySet="DimLocations" />
+            <End Role="FactSale" EntitySet="FactSales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FactSales_DimTime" Association="SalesAndShippingDWModel.FK_FactSales_DimTime">
+            <End Role="DimTime" EntitySet="DimTimes" />
+            <End Role="FactSale" EntitySet="FactSales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FactShipping_FactShipping" Association="SalesAndShippingDWModel.FK_FactShipping_FactShipping">
+            <End Role="DimTime" EntitySet="DimTimes" />
+            <End Role="FactShipping" EntitySet="FactShippings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FactShipping_DimItem" Association="SalesAndShippingDWModel.FK_FactShipping_DimItem">
+            <End Role="DimItem" EntitySet="DimItems" />
+            <End Role="FactShipping" EntitySet="FactShippings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FactShipping_DimShipper" Association="SalesAndShippingDWModel.FK_FactShipping_DimShipper">
+            <End Role="DimShipper" EntitySet="DimShippers" />
+            <End Role="FactShipping" EntitySet="FactShippings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FactShipping_DimLocation" Association="SalesAndShippingDWModel.FK_FactShipping_DimLocation">
+            <End Role="DimLocation" EntitySet="DimLocations" />
+            <End Role="FactShipping" EntitySet="FactShippings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FactShipping_DimLocation1" Association="SalesAndShippingDWModel.FK_FactShipping_DimLocation1">
+            <End Role="DimLocation" EntitySet="DimLocations" />
+            <End Role="FactShipping" EntitySet="FactShippings" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="DimTime">
+          <Key>
+            <PropertyRef Name="TimeId" />
+          </Key>
+          <Property Type="Int32" Name="TimeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="MiladiDate" Nullable="false" />
+          <Property Type="String" Name="PersianDate" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Day" Nullable="false" />
+          <Property Type="Int32" Name="DayOfTheWeek" Nullable="false" />
+          <Property Type="String" Name="DayOfTheWeekName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Month" Nullable="false" />
+          <Property Type="Int32" Name="Quarter" Nullable="false" />
+          <Property Type="Int32" Name="Year" Nullable="false" />
+          <Property Type="String" Name="QuarterName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DayOfTheWeekPersianName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MonthName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="FactSales" Relationship="SalesAndShippingDWModel.FK_FactSales_DimTime" FromRole="DimTime" ToRole="FactSale" />
+          <NavigationProperty Name="FactShippings" Relationship="SalesAndShippingDWModel.FK_FactShipping_FactShipping" FromRole="DimTime" ToRole="FactShipping" />
+        </EntityType>
+        <EntityType Name="DimBranch">
+          <Key>
+            <PropertyRef Name="BranchId" />
+          </Key>
+          <Property Type="Int32" Name="BranchId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="BranchName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BranchType" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="FactSales" Relationship="SalesAndShippingDWModel.FK_FactSales_DimBranch" FromRole="DimBranch" ToRole="FactSale" />
+        </EntityType>
+        <EntityType Name="DimItem">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Type="Int32" Name="ItemId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ItemName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Brand" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ItemType" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SupplierType" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="FactSales" Relationship="SalesAndShippingDWModel.FK_FactSales_DimItem" FromRole="DimItem" ToRole="FactSale" />
+          <NavigationProperty Name="FactShippings" Relationship="SalesAndShippingDWModel.FK_FactShipping_DimItem" FromRole="DimItem" ToRole="FactShipping" />
+        </EntityType>
+        <EntityType Name="DimLocation">
+          <Key>
+            <PropertyRef Name="LocationId" />
+          </Key>
+          <Property Type="Int32" Name="LocationId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Street" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ProvinceOrState" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Country" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DimShippers" Relationship="SalesAndShippingDWModel.FK_DimShipper_DimLocation" FromRole="DimLocation" ToRole="DimShipper" />
+          <NavigationProperty Name="FactSales" Relationship="SalesAndShippingDWModel.FK_FactSales_DimLocation" FromRole="DimLocation" ToRole="FactSale" />
+          <NavigationProperty Name="FactShippings" Relationship="SalesAndShippingDWModel.FK_FactShipping_DimLocation" FromRole="DimLocation" ToRole="FactShipping" />
+          <NavigationProperty Name="FactShippings1" Relationship="SalesAndShippingDWModel.FK_FactShipping_DimLocation1" FromRole="DimLocation" ToRole="FactShipping" />
+        </EntityType>
+        <EntityType Name="DimShipper">
+          <Key>
+            <PropertyRef Name="ShipperId" />
+          </Key>
+          <Property Type="Int32" Name="ShipperId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ShipperName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="LoacionId" />
+          <Property Type="String" Name="ShipperType" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DimLocation" Relationship="SalesAndShippingDWModel.FK_DimShipper_DimLocation" FromRole="DimShipper" ToRole="DimLocation" />
+          <NavigationProperty Name="FactShippings" Relationship="SalesAndShippingDWModel.FK_FactShipping_DimShipper" FromRole="DimShipper" ToRole="FactShipping" />
+        </EntityType>
+        <EntityType Name="FactSale">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="TimeId" Nullable="false" />
+          <Property Type="Int32" Name="ItemId" Nullable="false" />
+          <Property Type="Int32" Name="BranchId" Nullable="false" />
+          <Property Type="Int32" Name="LocationId" Nullable="false" />
+          <Property Type="Int32" Name="UnitsSold" Nullable="false" />
+          <Property Type="Decimal" Name="DollarsSold" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="AvgSales" Nullable="false" Precision="19" Scale="4" />
+          <NavigationProperty Name="DimBranch" Relationship="SalesAndShippingDWModel.FK_FactSales_DimBranch" FromRole="FactSale" ToRole="DimBranch" />
+          <NavigationProperty Name="DimItem" Relationship="SalesAndShippingDWModel.FK_FactSales_DimItem" FromRole="FactSale" ToRole="DimItem" />
+          <NavigationProperty Name="DimLocation" Relationship="SalesAndShippingDWModel.FK_FactSales_DimLocation" FromRole="FactSale" ToRole="DimLocation" />
+          <NavigationProperty Name="DimTime" Relationship="SalesAndShippingDWModel.FK_FactSales_DimTime" FromRole="FactSale" ToRole="DimTime" />
+        </EntityType>
+        <EntityType Name="FactShipping">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="TimeId" />
+          <Property Type="Int32" Name="ItemId" />
+          <Property Type="Int32" Name="ShipperId" />
+          <Property Type="Int32" Name="FromLocationId" />
+          <Property Type="Int32" Name="ToLocationId" />
+          <Property Type="Decimal" Name="DollarsCost" Precision="19" Scale="4" />
+          <Property Type="Int32" Name="UnitsShipped" />
+          <NavigationProperty Name="DimTime" Relationship="SalesAndShippingDWModel.FK_FactShipping_FactShipping" FromRole="FactShipping" ToRole="DimTime" />
+          <NavigationProperty Name="DimItem" Relationship="SalesAndShippingDWModel.FK_FactShipping_DimItem" FromRole="FactShipping" ToRole="DimItem" />
+          <NavigationProperty Name="DimShipper" Relationship="SalesAndShippingDWModel.FK_FactShipping_DimShipper" FromRole="FactShipping" ToRole="DimShipper" />
+          <NavigationProperty Name="DimLocation" Relationship="SalesAndShippingDWModel.FK_FactShipping_DimLocation" FromRole="FactShipping" ToRole="DimLocation" />
+          <NavigationProperty Name="DimLocation1" Relationship="SalesAndShippingDWModel.FK_FactShipping_DimLocation1" FromRole="FactShipping" ToRole="DimLocation" />
+        </EntityType>
+        <Association Name="FK_FactSales_DimBranch">
+          <End Type="SalesAndShippingDWModel.DimBranch" Role="DimBranch" Multiplicity="1" />
+          <End Type="SalesAndShippingDWModel.FactSale" Role="FactSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DimBranch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="FactSale">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FactSales_DimItem">
+          <End Type="SalesAndShippingDWModel.DimItem" Role="DimItem" Multiplicity="1" />
+          <End Type="SalesAndShippingDWModel.FactSale" Role="FactSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DimItem">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="FactSale">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DimShipper_DimLocation">
+          <End Type="SalesAndShippingDWModel.DimLocation" Role="DimLocation" Multiplicity="0..1" />
+          <End Type="SalesAndShippingDWModel.DimShipper" Role="DimShipper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DimLocation">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="DimShipper">
+              <PropertyRef Name="LoacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FactSales_DimLocation">
+          <End Type="SalesAndShippingDWModel.DimLocation" Role="DimLocation" Multiplicity="1" />
+          <End Type="SalesAndShippingDWModel.FactSale" Role="FactSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DimLocation">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="FactSale">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FactSales_DimTime">
+          <End Type="SalesAndShippingDWModel.DimTime" Role="DimTime" Multiplicity="1" />
+          <End Type="SalesAndShippingDWModel.FactSale" Role="FactSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DimTime">
+              <PropertyRef Name="TimeId" />
+            </Principal>
+            <Dependent Role="FactSale">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FactShipping_FactShipping">
+          <End Type="SalesAndShippingDWModel.DimTime" Role="DimTime" Multiplicity="1" />
+          <End Type="SalesAndShippingDWModel.FactShipping" Role="FactShipping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DimTime">
+              <PropertyRef Name="TimeId" />
+            </Principal>
+            <Dependent Role="FactShipping">
+              <PropertyRef Name="TimeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FactShipping_DimItem">
+          <End Type="SalesAndShippingDWModel.DimItem" Role="DimItem" Multiplicity="1" />
+          <End Type="SalesAndShippingDWModel.FactShipping" Role="FactShipping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DimItem">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="FactShipping">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FactShipping_DimShipper">
+          <End Type="SalesAndShippingDWModel.DimShipper" Role="DimShipper" Multiplicity="1" />
+          <End Type="SalesAndShippingDWModel.FactShipping" Role="FactShipping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DimShipper">
+              <PropertyRef Name="ShipperId" />
+            </Principal>
+            <Dependent Role="FactShipping">
+              <PropertyRef Name="ShipperId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FactShipping_DimLocation">
+          <End Type="SalesAndShippingDWModel.DimLocation" Role="DimLocation" Multiplicity="1" />
+          <End Type="SalesAndShippingDWModel.FactShipping" Role="FactShipping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DimLocation">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="FactShipping">
+              <PropertyRef Name="ToLocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FactShipping_DimLocation1">
+          <End Type="SalesAndShippingDWModel.DimLocation" Role="DimLocation" Multiplicity="1" />
+          <End Type="SalesAndShippingDWModel.FactShipping" Role="FactShipping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DimLocation">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="FactShipping">
+              <PropertyRef Name="FromLocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SalesAndShippingDWModelStoreContainer" CdmEntityContainer="SalesAndShippingDWEntities">
+          <EntitySetMapping Name="DimTimes">
+            <EntityTypeMapping TypeName="SalesAndShippingDWModel.DimTime">
+              <MappingFragment StoreEntitySet="DimTime">
+                <ScalarProperty Name="MonthName" ColumnName="MonthName" />
+                <ScalarProperty Name="DayOfTheWeekPersianName" ColumnName="DayOfTheWeekPersianName" />
+                <ScalarProperty Name="QuarterName" ColumnName="QuarterName" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Quarter" ColumnName="Quarter" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="DayOfTheWeekName" ColumnName="DayOfTheWeekName" />
+                <ScalarProperty Name="DayOfTheWeek" ColumnName="DayOfTheWeek" />
+                <ScalarProperty Name="Day" ColumnName="Day" />
+                <ScalarProperty Name="PersianDate" ColumnName="PersianDate" />
+                <ScalarProperty Name="MiladiDate" ColumnName="MiladiDate" />
+                <ScalarProperty Name="TimeId" ColumnName="TimeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DimBranches">
+            <EntityTypeMapping TypeName="SalesAndShippingDWModel.DimBranch">
+              <MappingFragment StoreEntitySet="DimBranch">
+                <ScalarProperty Name="BranchType" ColumnName="BranchType" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DimItems">
+            <EntityTypeMapping TypeName="SalesAndShippingDWModel.DimItem">
+              <MappingFragment StoreEntitySet="DimItem">
+                <ScalarProperty Name="SupplierType" ColumnName="SupplierType" />
+                <ScalarProperty Name="ItemType" ColumnName="ItemType" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DimLocations">
+            <EntityTypeMapping TypeName="SalesAndShippingDWModel.DimLocation">
+              <MappingFragment StoreEntitySet="DimLocation">
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="ProvinceOrState" ColumnName="ProvinceOrState" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DimShippers">
+            <EntityTypeMapping TypeName="SalesAndShippingDWModel.DimShipper">
+              <MappingFragment StoreEntitySet="DimShipper">
+                <ScalarProperty Name="ShipperType" ColumnName="ShipperType" />
+                <ScalarProperty Name="LoacionId" ColumnName="LoacionId" />
+                <ScalarProperty Name="ShipperName" ColumnName="ShipperName" />
+                <ScalarProperty Name="ShipperId" ColumnName="ShipperId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FactSales">
+            <EntityTypeMapping TypeName="SalesAndShippingDWModel.FactSale">
+              <MappingFragment StoreEntitySet="FactSales">
+                <ScalarProperty Name="AvgSales" ColumnName="AvgSales" />
+                <ScalarProperty Name="DollarsSold" ColumnName="DollarsSold" />
+                <ScalarProperty Name="UnitsSold" ColumnName="UnitsSold" />
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="TimeId" ColumnName="TimeId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FactShippings">
+            <EntityTypeMapping TypeName="SalesAndShippingDWModel.FactShipping">
+              <MappingFragment StoreEntitySet="FactShipping">
+                <ScalarProperty Name="UnitsShipped" ColumnName="UnitsShipped" />
+                <ScalarProperty Name="DollarsCost" ColumnName="DollarsCost" />
+                <ScalarProperty Name="ToLocationId" ColumnName="ToLocationId" />
+                <ScalarProperty Name="FromLocationId" ColumnName="FromLocationId" />
+                <ScalarProperty Name="ShipperId" ColumnName="ShipperId" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="TimeId" ColumnName="TimeId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1">
+        <EntityTypeShape EntityType="SalesAndShippingDWModel.DimTime" Width="2.125" PointX="1" PointY="2.75" Height="3.7109993489583326" />
+        <EntityTypeShape EntityType="SalesAndShippingDWModel.DimBranch" Width="1.5" PointX="8.25" PointY="1.25" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="SalesAndShippingDWModel.DimItem" Width="1.5" PointX="3.625" PointY="6.75" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="SalesAndShippingDWModel.DimLocation" Width="1.5" PointX="8.25" PointY="3.625" Height="2.3648893229166656" />
+        <EntityTypeShape EntityType="SalesAndShippingDWModel.DimShipper" Width="1.5" PointX="8.25" PointY="7" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="SalesAndShippingDWModel.FactSale" Width="1.5" PointX="4.625" PointY="1" Height="3.3263964843749996" />
+        <EntityTypeShape EntityType="SalesAndShippingDWModel.FactShipping" Width="1.5" PointX="5.625" PointY="5" Height="2.5571907552083317" />
+        <AssociationConnector Association="SalesAndShippingDWModel.FK_FactSales_DimBranch" >
+          <ConnectorPoint PointX="8.25" PointY="2.1439925130208337" />
+          <ConnectorPoint PointX="6.125" PointY="2.1439925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="SalesAndShippingDWModel.FK_FactSales_DimItem" >
+          <ConnectorPoint PointX="4.875" PointY="6.75" />
+          <ConnectorPoint PointX="4.875" PointY="4.326396484375" />
+        </AssociationConnector>
+        <AssociationConnector Association="SalesAndShippingDWModel.FK_DimShipper_DimLocation" >
+          <ConnectorPoint PointX="9" PointY="6.3744921875" />
+          <ConnectorPoint PointX="9" PointY="7" />
+        </AssociationConnector>
+        <AssociationConnector Association="SalesAndShippingDWModel.FK_FactSales_DimLocation" >
+          <ConnectorPoint PointX="8.25" PointY="3.9756982421875" />
+          <ConnectorPoint PointX="6.125" PointY="3.9756982421875" />
+        </AssociationConnector>
+        <AssociationConnector Association="SalesAndShippingDWModel.FK_FactSales_DimTime" >
+          <ConnectorPoint PointX="3.125" PointY="3.5381982421875" />
+          <ConnectorPoint PointX="4.625" PointY="3.5381982421875" />
+        </AssociationConnector>
+        <AssociationConnector Association="SalesAndShippingDWModel.FK_FactShipping_FactShipping" >
+          <ConnectorPoint PointX="3.125" PointY="5.7304996744791659" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="5.730499674479165" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="5.7304996744791659" />
+          <ConnectorPoint PointX="5.625" PointY="5.7304996744791659" />
+        </AssociationConnector>
+        <AssociationConnector Association="SalesAndShippingDWModel.FK_FactShipping_DimItem" >
+          <ConnectorPoint PointX="5.125" PointY="7.6343489583333328" />
+          <ConnectorPoint PointX="5.625" PointY="7.6343489583333328" />
+        </AssociationConnector>
+        <AssociationConnector Association="SalesAndShippingDWModel.FK_FactShipping_DimShipper" >
+          <ConnectorPoint PointX="8.25" PointY="7.7593489583333328" />
+          <ConnectorPoint PointX="7.125" PointY="7.7593489583333328" />
+        </AssociationConnector>
+        <AssociationConnector Association="SalesAndShippingDWModel.FK_FactShipping_DimLocation" >
+          <ConnectorPoint PointX="8.25" PointY="5.68724609375" />
+          <ConnectorPoint PointX="7.125" PointY="5.68724609375" />
+        </AssociationConnector>
+        <AssociationConnector Association="SalesAndShippingDWModel.FK_FactShipping_DimLocation1" >
+          <ConnectorPoint PointX="8.25" PointY="5.281123046875" />
+          <ConnectorPoint PointX="7.125" PointY="5.281123046875" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
